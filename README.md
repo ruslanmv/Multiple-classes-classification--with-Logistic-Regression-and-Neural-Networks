@@ -111,7 +111,7 @@ missing_values_table(df_states)
 
     Your selected dataframe has 1 columns.
     There are 1 columns that have missing values.
-    
+
 
 
 
@@ -125,7 +125,7 @@ missing_values_table(df_states)
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -168,7 +168,7 @@ df_states.isna().apply(pd.value_counts)
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -204,7 +204,7 @@ missing_values_table(df_sensor)
 
     Your selected dataframe has 60 columns.
     There are 5 columns that have missing values.
-    
+
 
 
 
@@ -218,7 +218,7 @@ missing_values_table(df_sensor)
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -281,7 +281,7 @@ df_sensor.isna().apply(pd.value_counts)
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -383,7 +383,7 @@ print("There are ",len(data_class),"non null values that we can use")
 ```
 
     There are  5370 non null values that we can use
-    
+
 
 We requiere to merge the dataframes of the  target with the sensors
 
@@ -399,7 +399,7 @@ print("There are ",len(mergedDf)," rows that contains the new dataframe")
 ```
 
     There are  5370  rows that contains the new dataframe
-    
+
 
 We dont requiere the the original index for now, so we can reset them.
 
@@ -433,7 +433,7 @@ dfa.head()
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -599,7 +599,7 @@ print("There are ",len(dfa)," rows in the working dataframe")
 ```
 
     There are  5370  rows in the working dataframe
-    
+
 
 # Remove nan values
 
@@ -629,9 +629,9 @@ plot_histogram(dfc,1)
 ```
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_34_0.png)
-    
+​    
 
 
 
@@ -657,9 +657,9 @@ def plot_hisograms(df):
 ```
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_36_0.png)
-    
+​    
 
 
    We need to normalize the histogram, since the distribution of our plot is also normalized 
@@ -686,9 +686,9 @@ plot_distribution(dfc,dfc.columns[2])
 ```
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_39_0.png)
-    
+​    
 
 
 
@@ -728,9 +728,9 @@ plot_distributions(dfc)
 ```
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_41_0.png)
-    
+​    
 
 
 From the picture we have seen that some sensors have a big standard deviation, this fact can be used as a discriminant of the classification procedure.
@@ -765,9 +765,9 @@ correlations(dfc)
 ```
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_45_0.png)
-    
+​    
 
 
 We can see that there are some **features** that  are correlated, in principle we can reduce the dimensions by usig PCA, but before proceed with that let us first, perform an extra analysis of the data with a simple scree plot.
@@ -832,9 +832,9 @@ principal(dfc[dfc.columns])
 ```
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_50_0.png)
-    
+​    
 
 
           PC  Cumulative Variance  Delta_Variance
@@ -852,10 +852,10 @@ principal(dfc[dfc.columns])
     58  PC59             0.999139        0.000445
     59  PC60             0.999578        0.000439
     60  PC61             1.000000        0.000422
-    
 
 
-    
+
+
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_50_2.png)
     
 
@@ -900,9 +900,9 @@ correlations(dfd)
 ```
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_55_0.png)
-    
+​    
 
 
 Now our data has  less correlated points. 
@@ -913,13 +913,13 @@ principal(dfd[dfd.columns])
 ```
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_57_0.png)
-    
+​    
 
 
 
-    
+
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_57_1.png)
     
 
@@ -943,9 +943,9 @@ dfd.hist(column='state')
 
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_61_1.png)
-    
+​    
 
 
 It seems that the most of the data corresponds to the first type of the state, we can create a neural network with the current status but is possible  that is not able to recognize well the other possible cases. Class Imbalance is a common problem in machine learning, especially in classification problems. Imbalance data can hamper our model accuracy big time.The simplest implementation of over-sampling is to duplicate random records from the minority class, which can cause overfishing. In under-sampling, the simplest technique involves removing random records from the majority class, which can cause loss of information. So instead remove data, I will produce syntetic data to develop the neural network.
@@ -996,9 +996,9 @@ plot_boxplot(df1)
 ```
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_67_0.png)
-    
+​    
 
 
 I will use interquartile range (IQR), to filter the outiers. In descriptive statistics, the interquartile range (IQR), also called the midspread, middle 50%, or H‑spread, is a measure of statistical dispersion, being equal to the difference between 75th and 25th percentiles, or between upper and lower quartiles.IQR = Q3 − Q1. In other words, the IQR is the first quartile subtracted from the third quartile; these quartiles can be clearly seen on a box plot on the data. It is a trimmed estimator, defined as the 25% trimmed range, and is a commonly used robust measure of scale. Source: Wikipedia
@@ -1059,7 +1059,7 @@ dfb.head()
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -1268,9 +1268,9 @@ dfb.hist(column='state')
 
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_76_1.png)
-    
+​    
 
 
 
@@ -1279,9 +1279,9 @@ plot_distributions(dfb)
 ```
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_77_0.png)
-    
+​    
 
 
 
@@ -1349,7 +1349,7 @@ df1c.head()
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -1427,7 +1427,7 @@ df1c.tail()
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -1512,9 +1512,9 @@ plt.ylabel('standard deviation')
 
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_89_1.png)
-    
+​    
 
 
 A high standard deviation shows that the data is widely spread (less reliable) and a low standard deviation shows that the data are clustered closely around the mean (more reliable)
@@ -1577,7 +1577,7 @@ print(lista1)
 ```
 
     ['state', 29, 33, 26, 21, 40, 52, 7, 55, 18, 39, 19, 2, 34, 4, 35, 41, 12, 9]
-    
+
 
 
 ```python
@@ -1585,7 +1585,7 @@ print(lista2)
 ```
 
     ['state', 26, 29, 39, 33, 7, 40, 41, 34, 55, 21, 19, 35, 12, 4, 18, 2, 52, 9, 1]
-    
+
 
 
 ```python
@@ -1593,7 +1593,7 @@ print(lista3)
 ```
 
     ['state', 26, 33, 29, 7, 34, 2, 21, 39, 4, 40, 35, 18, 52, 12, 55, 41, 19, 9]
-    
+
 
 
 ```python
@@ -1601,7 +1601,7 @@ print(lista4)
 ```
 
     ['state', 26, 12, 52, 39, 19, 40, 35, 7, 55, 18, 41, 21, 2, 29, 34, 4, 33, 9, 49, 1]
-    
+
 
 we have seen that for each state there are different sensors that gives an important contibution
 
@@ -1631,7 +1631,7 @@ int3
 ```
 
     There are 18 sensors that we will use
-    
+
 
 
 
@@ -1665,7 +1665,7 @@ df1f.head()
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -1851,7 +1851,7 @@ df2f.head()
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -2032,9 +2032,9 @@ plot_distributions(dfg)
 ```
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_113_0.png)
-    
+​    
 
 
 ### Saving Setup
@@ -2068,7 +2068,7 @@ df.head()
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -2228,9 +2228,9 @@ df.hist(column='state')
 
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_119_1.png)
-    
+​    
 
 
 
@@ -2239,13 +2239,13 @@ principal(df[df.columns])
 ```
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_120_0.png)
-    
+​    
 
 
 
-    
+
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_120_1.png)
     
 
@@ -2256,9 +2256,9 @@ correlations(df)
 ```
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_121_0.png)
-    
+​    
 
 
 
@@ -2278,7 +2278,7 @@ df.head()
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -2485,10 +2485,10 @@ plt.show()
 
     C:\Users\rusla\.conda\envs\tf-keras-gpu-test\lib\site-packages\seaborn\_decorators.py:36: FutureWarning: Pass the following variable as a keyword arg: x. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
       warnings.warn(
-    
 
 
-    
+
+
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_125_1.png)
     
 
@@ -2550,7 +2550,7 @@ print('Resampple dataset shape:', Counter(y_smote))
 
     Original dataset shape: Counter({1.0: 2695, 3.0: 130, 4.0: 50, 2.0: 19})
     Resampple dataset shape: Counter({1.0: 2695, 2.0: 2695, 3.0: 2695, 4.0: 2695})
-    
+
 
 
 ```python
@@ -2580,7 +2580,7 @@ dfs.head()
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -2758,7 +2758,7 @@ dfs.head()
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -2929,7 +2929,7 @@ dfs.head()
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -3089,9 +3089,9 @@ dfs.hist(column='state')
 
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_144_1.png)
-    
+​    
 
 
 
@@ -3116,9 +3116,9 @@ plt.scatter(X_pca[:, 1], X_pca[:, 4], c=target_values)
 
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_145_1.png)
-    
+​    
 
 
 
@@ -3127,9 +3127,9 @@ correlations(df)
 ```
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_146_0.png)
-    
+​    
 
 
 
@@ -3189,7 +3189,7 @@ vif
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -3315,9 +3315,9 @@ vif.plot.scatter(x="variables", y="VIF", alpha=0.5)
 
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_157_1.png)
-    
+​    
 
 
 
@@ -3371,9 +3371,9 @@ correlations(dfg)
 ```
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_164_0.png)
-    
+​    
 
 
 
@@ -3387,9 +3387,9 @@ correlations(dfg_reduced )
 ```
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_166_0.png)
-    
+​    
 
 
 
@@ -3409,7 +3409,7 @@ dfg_reduced
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -3733,9 +3733,9 @@ plot_classes(dfg_reduced,dfg_reduced.columns[1],dfg_reduced.columns[2])
 ```
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_170_0.png)
-    
+​    
 
 
 
@@ -3745,13 +3745,13 @@ plot_components(dfg_reduced,'state',dfg_reduced.columns[1],dfg_reduced.columns[2
 ```
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_171_0.png)
-    
+​    
 
 
 
-    
+
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_171_1.png)
     
 
@@ -3828,7 +3828,7 @@ x_pca.head()
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -3998,9 +3998,9 @@ plt.plot(explained_variance.T )
 
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_184_1.png)
-    
+​    
 
 
 
@@ -4016,9 +4016,9 @@ plt.plot(explained_variance[0:14].T )
 
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_185_1.png)
-    
+​    
 
 
 
@@ -4043,7 +4043,7 @@ x_pca.head()
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -4201,9 +4201,9 @@ correlations(x_pca)
 ```
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_189_0.png)
-    
+​    
 
 
 
@@ -4219,9 +4219,9 @@ x_pca.hist(column='state')
 
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_190_1.png)
-    
+​    
 
 
 
@@ -4230,9 +4230,9 @@ plot_classes(x_pca,1,5)
 ```
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_191_0.png)
-    
+​    
 
 
 
@@ -4242,13 +4242,13 @@ plot_components(x_pca,'state',1,2)
 ```
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_192_0.png)
-    
+​    
 
 
 
-    
+
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_192_1.png)
     
 
@@ -4313,7 +4313,7 @@ dim4=feature_importance(df4r)
 
 
 
-    
+
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_196_1.png)
     
 
@@ -4323,7 +4323,7 @@ dim4=feature_importance(df4r)
 
 
 
-    
+
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_196_3.png)
     
 
@@ -4333,7 +4333,7 @@ dim4=feature_importance(df4r)
 
 
 
-    
+
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_196_5.png)
     
 
@@ -4343,7 +4343,7 @@ dim4=feature_importance(df4r)
 
 
 
-    
+
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_196_7.png)
     
 
@@ -4362,9 +4362,9 @@ for i, ax in enumerate(axes.flatten()):
 ```
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_197_0.png)
-    
+​    
 
 
 
@@ -4386,9 +4386,9 @@ for i, ax in enumerate(axes.flatten()):
 ```
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_198_0.png)
-    
+​    
 
 
 
@@ -4419,9 +4419,9 @@ plot_distributions(dfr)
 ```
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_202_0.png)
-    
+​    
 
 
 ## Model Building
@@ -4526,10 +4526,10 @@ ovr(dfr)
     Recall: Indicates what proportions of actual positives was identified correctly
     F-Score: It is the harmonic mean between precision & recall
     Support: It is the number of occurrence of the given class in our dataset
-    
 
 
-    
+
+
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_207_1.png)
     
 
@@ -4555,10 +4555,10 @@ ovr(dfs)
     Recall: Indicates what proportions of actual positives was identified correctly
     F-Score: It is the harmonic mean between precision & recall
     Support: It is the number of occurrence of the given class in our dataset
-    
 
 
-    
+
+
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_208_1.png)
     
 
@@ -4584,10 +4584,10 @@ ovr(dfs)
     Recall: Indicates what proportions of actual positives was identified correctly
     F-Score: It is the harmonic mean between precision & recall
     Support: It is the number of occurrence of the given class in our dataset
-    
 
 
-    
+
+
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_209_1.png)
     
 
@@ -4629,10 +4629,10 @@ ovr(x_pca)
     Recall: Indicates what proportions of actual positives was identified correctly
     F-Score: It is the harmonic mean between precision & recall
     Support: It is the number of occurrence of the given class in our dataset
-    
 
 
-    
+
+
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_211_1.png)
     
 
@@ -4658,10 +4658,10 @@ ovr(x_pca)
     Recall: Indicates what proportions of actual positives was identified correctly
     F-Score: It is the harmonic mean between precision & recall
     Support: It is the number of occurrence of the given class in our dataset
-    
 
 
-    
+
+
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_212_1.png)
     
 
@@ -4736,7 +4736,7 @@ multinomial(x_pca)
     1            0          542            0            0
     2          190            0          337            0
     3            0            0            0          543
-    
+
 
     C:\Users\rusla\.conda\envs\tf-keras-gpu-test\lib\site-packages\statsmodels\discrete\discrete_model.py:2290: RuntimeWarning: overflow encountered in exp
       eXB = np.column_stack((np.ones(len(X)), np.exp(X)))
@@ -4744,7 +4744,7 @@ multinomial(x_pca)
       return eXB/eXB.sum(1)[:,None]
     C:\Users\rusla\.conda\envs\tf-keras-gpu-test\lib\site-packages\statsmodels\base\optimizer.py:413: RuntimeWarning: invalid value encountered in greater
       while (iterations < maxiter and np.any(np.abs(newparams -
-    
+
 
 
 ```python
@@ -4771,7 +4771,7 @@ multinomial(dfs)
     1            0          542            0            0
     2          190            0          337            0
     3            0            0            0          543
-    
+
 
     C:\Users\rusla\.conda\envs\tf-keras-gpu-test\lib\site-packages\statsmodels\discrete\discrete_model.py:2290: RuntimeWarning: overflow encountered in exp
       eXB = np.column_stack((np.ones(len(X)), np.exp(X)))
@@ -4779,7 +4779,7 @@ multinomial(dfs)
       return eXB/eXB.sum(1)[:,None]
     C:\Users\rusla\.conda\envs\tf-keras-gpu-test\lib\site-packages\statsmodels\base\optimizer.py:413: RuntimeWarning: invalid value encountered in greater
       while (iterations < maxiter and np.any(np.abs(newparams -
-    
+
 
 
 ```python
@@ -4818,7 +4818,7 @@ dataframe.head(3)
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -5098,13 +5098,13 @@ plot_history(history)
 ```
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_237_0.png)
-    
+​    
 
 
 
-    
+
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_237_1.png)
     
 
@@ -5120,7 +5120,7 @@ full_multiclass_report(model,
 
     C:\Users\rusla\.conda\envs\tf-keras-gpu-test\lib\site-packages\keras\engine\sequential.py:450: UserWarning: `model.predict_classes()` is deprecated and will be removed after 2021-01-01. Please use instead:* `np.argmax(model.predict(x), axis=-1)`,   if your model does multi-class classification   (e.g. if it uses a `softmax` last-layer activation).* `(model.predict(x) > 0.5).astype("int32")`,   if your model does binary classification   (e.g. if it uses a `sigmoid` last-layer activation).
       warnings.warn('`model.predict_classes()` is deprecated and '
-    
+
 
     Accuracy : 0.8231884057971014
     
@@ -5140,10 +5140,10 @@ full_multiclass_report(model,
      [  0 446   0   0]
      [ 88   0 340   0]
      [  0   0   0 413]]
-    
 
 
-    
+
+
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_238_2.png)
     
 
@@ -5227,7 +5227,7 @@ for mean, stdev, param in zip(means, stds, params):
     0.436827 (0.063173) with: {'activation': 'sigmoid', 'optimizer': 'adam'}
     0.250000 (0.250000) with: {'activation': 'hard_sigmoid', 'optimizer': 'rmsprop'}
     0.426438 (0.073562) with: {'activation': 'hard_sigmoid', 'optimizer': 'adam'}
-    
+
 
 ## Final Neural Network Model
 
@@ -5269,13 +5269,13 @@ plot_history(history)
 ```
 
 
-    
+​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_253_0.png)
-    
+​    
 
 
 
-    
+
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_253_1.png)
     
 
@@ -5291,7 +5291,7 @@ full_multiclass_report(model,
 
     C:\Users\rusla\.conda\envs\tf-keras-gpu-test\lib\site-packages\keras\engine\sequential.py:450: UserWarning: `model.predict_classes()` is deprecated and will be removed after 2021-01-01. Please use instead:* `np.argmax(model.predict(x), axis=-1)`,   if your model does multi-class classification   (e.g. if it uses a `softmax` last-layer activation).* `(model.predict(x) > 0.5).astype("int32")`,   if your model does binary classification   (e.g. if it uses a `sigmoid` last-layer activation).
       warnings.warn('`model.predict_classes()` is deprecated and '
-    
+
 
     Accuracy : 0.8318840579710145
     
@@ -5311,10 +5311,10 @@ full_multiclass_report(model,
      [  0 446   0   0]
      [ 92   0 336   0]
      [  2   0   0 411]]
-    
 
 
-    
+
+
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_254_2.png)
     
 
@@ -5359,56 +5359,5 @@ def check_schema(data_dict, schema):
 
 and if the schema is correct later can be stored to the database.It can be scheduled action that each  30 minutes check the new data and moves to the database In addition during the ingestion of the data it is possible to save also the logs of the erros and store them in another database to analize the source of the errors.
 
-Congratulations we have practiced different techniques of mutilclass classification
+**Congratulations!** we have practiced different techniques of multiclass classification.
 
-
-```python
-import IPython
-from IPython.lib import kernel
-```
-
-
-```javascript
-%%javascript
-var kernel = IPython.notebook.kernel;
-var thename = window.document.getElementById("notebook_name").innerHTML;
-var command = "theNotebook = " + "'"+thename+"'";
-kernel.execute(command);
-
-```
-
-
-    <IPython.core.display.Javascript object>
-
-
-
-```python
-import os
-command_convert="jupyter nbconvert "
-command_in=theNotebook+".ipynb"
-command_out=theNotebook+".md"
-command_action=" --to markdown --output "
-command=command_convert+command_in+command_action+command_out
-print(command)
-os.system(command)
-```
-
-    jupyter nbconvert Multiple-classes-classification.ipynb --to markdown --output Multiple-classes-classification.md
-    
-
-
-
-
-    0
-
-
-
-
-```python
-
-```
-
-
-```python
-
-```
