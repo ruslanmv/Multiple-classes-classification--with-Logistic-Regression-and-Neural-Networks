@@ -1,0 +1,29 @@
+Practical Rules of Data Science:
+
+
+1. Before start any cleaning, you should plot the data,
+plot the distribution around the standard deviation.
+In addition with outlayers
+
+2. You should analize the data, as an example with 
+ANOVA and PCA.
+
+3. Before insert null values with  mean values or another technique, try to develop the model
+dropping them.
+
+4. Plot the distribution of the points.If you dot have enough data introduce data, but carefully because, the mean
+destroy the data.
+
+
+5. Before use neural network, try to identify first standard methods of ml.
+For example if you are performin classification try to perform clusterization.
+
+6. If your are not satisfied with your first model, try with neural network, and compare them.
+
+7. It is needed test your data and compare at least two models.
+
+
+
+
+
+https://mlflow.org/
