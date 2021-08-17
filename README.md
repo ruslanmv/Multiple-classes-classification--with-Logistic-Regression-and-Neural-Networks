@@ -114,22 +114,6 @@ missing_values_table(df_states)
 
 
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -146,8 +130,6 @@ missing_values_table(df_states)
     </tr>
   </tbody>
 </table>
-</div>
-
 
 
 
@@ -156,23 +138,6 @@ missing_values_table(df_states)
 df_states.isna().apply(pd.value_counts)
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -191,10 +156,6 @@ df_states.isna().apply(pd.value_counts)
     </tr>
   </tbody>
 </table>
-</div>
-
-
-
 We have 5370 rows that does not contain null values
 
 
@@ -207,22 +168,6 @@ missing_values_table(df_sensor)
 
 
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -259,8 +204,6 @@ missing_values_table(df_sensor)
     </tr>
   </tbody>
 </table>
-</div>
-
 
 
 
@@ -271,21 +214,6 @@ df_sensor.isna().apply(pd.value_counts)
 
 
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -365,7 +293,7 @@ df_sensor.isna().apply(pd.value_counts)
   </tbody>
 </table>
 <p>2 rows × 60 columns</p>
-</div>
+
 
 
 
@@ -423,21 +351,6 @@ dfa.head()
 
 
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -589,7 +502,7 @@ dfa.head()
   </tbody>
 </table>
 <p>5 rows × 61 columns</p>
-</div>
+
 
 
 
@@ -936,13 +849,6 @@ dfd.hist(column='state')
 ```
 
 
-
-
-    array([[<AxesSubplot:title={'center':'state'}>]], dtype=object)
-
-
-
-
 ​    
 ![png](Multiple-classes-classification_files/Multiple-classes-classification_61_1.png)
 ​    
@@ -1049,21 +955,6 @@ dfb.head()
 
 
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1239,8 +1130,6 @@ dfb.head()
   </tbody>
 </table>
 <p>5 rows × 47 columns</p>
-</div>
-
 
 
 
@@ -1339,21 +1228,6 @@ df1c.head()
 
 
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1402,7 +1276,7 @@ df1c.head()
     </tr>
   </tbody>
 </table>
-</div>
+
 
 
 
@@ -1418,20 +1292,7 @@ df1c.tail()
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1480,7 +1341,7 @@ df1c.tail()
     </tr>
   </tbody>
 </table>
-</div>
+
 
 
 
@@ -1653,23 +1514,6 @@ df4f = df4b[int3]
 df1f.head() 
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1830,7 +1674,7 @@ df1f.head()
     </tr>
   </tbody>
 </table>
-</div>
+
 
 
 
@@ -1841,21 +1685,6 @@ df2f.head()
 
 
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2016,7 +1845,7 @@ df2f.head()
     </tr>
   </tbody>
 </table>
-</div>
+
 
 
 
@@ -2058,21 +1887,6 @@ df.head()
 
 
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2211,7 +2025,7 @@ df.head()
     </tr>
   </tbody>
 </table>
-</div>
+
 
 
 
@@ -2269,20 +2083,7 @@ df.head()
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2443,7 +2244,7 @@ df.head()
     </tr>
   </tbody>
 </table>
-</div>
+
 
 
 
@@ -2570,21 +2371,6 @@ dfs.head()
 
 
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2748,21 +2534,6 @@ dfs.head()
 
 
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2901,7 +2672,7 @@ dfs.head()
     </tr>
   </tbody>
 </table>
-</div>
+
 
 
 
@@ -2926,13 +2697,7 @@ dfs.head()
         vertical-align: middle;
     }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
     
-    .dataframe thead th {
-        text-align: right;
-    }
 </style>
 <table border="1" class="dataframe">
   <thead>
@@ -3058,7 +2823,7 @@ dfs.head()
       <td>21.579734</td>
       <td>22.836806</td>
       <td>21.568314</td>
-      <td>21.587638</td>
+      <td>21.58738</td>
       <td>19.515942</td>
       <td>22.674051</td>
       <td>19.717835</td>
@@ -3072,7 +2837,8 @@ dfs.head()
     </tr>
   </tbody>
 </table>
-</div>
+
+
 
 
 
@@ -3179,21 +2945,6 @@ vif
 
 
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -3290,7 +3041,7 @@ vif
     </tr>
   </tbody>
 </table>
-</div>
+
 
 
 
@@ -3400,20 +3151,8 @@ dfg_reduced
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -3681,7 +3420,7 @@ dfg_reduced
   </tbody>
 </table>
 <p>2894 rows × 17 columns</p>
-</div>
+
 
 
 
@@ -3819,20 +3558,7 @@ x_pca.head()
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -3965,7 +3691,7 @@ x_pca.head()
     </tr>
   </tbody>
 </table>
-</div>
+
 
 
 
@@ -4034,20 +3760,7 @@ x_pca.head()
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -4808,21 +4521,6 @@ dataframe.head(3)
 
 
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -4917,7 +4615,7 @@ dataframe.head(3)
     </tr>
   </tbody>
 </table>
-</div>
+
 
 
 
